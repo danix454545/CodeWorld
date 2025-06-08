@@ -1,235 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CodeWorld</title>
-    <link rel="icon" type="image/gif" href="New Piskel (1).gif" />
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff;
-        }
-
-        header {
-            background-color: #00cfea;
-            color: rgb(0, 255, 106);
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .botones-header {
-            margin-top: 1rem;
-        }
-
-        .botones-header button {
-            background-color: #00ff80;
-            color: #feffff;
-            border: none;
-            padding: 0.5rem 1rem;
-            margin: 0.3rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .botones-header button:hover {
-            background-color: #ffffff;
-        }
-
-        main {
-            padding: 2rem;
-        }
-
-        /* Estilos carrusel tipo Netflix */
-        .carousel-container {
-            position: relative;
-            margin-top: 1rem;
-            overflow: hidden;
-        }
-
-        .carousel-track {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
-        }
-
-        .carousel-track::-webkit-scrollbar {
-            display: none; /* Chrome, Safari y Opera */
-        }
-
-        .carousel-item {
-            min-width: 200px;
-            margin-right: 1rem;
-            border-radius: 10px;
-            overflow: hidden;
-            flex-shrink: 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            cursor: pointer;
-            transition: transform 0.3s;
-            background-color: #eee;
-        }
-
-        .carousel-item:hover {
-            transform: scale(1.05);
-        }
-
-        .carousel-item img {
-            width: 100%;
-            display: block;
-            border-radius: 10px;
-        }
-
-        /* Botones flechas */
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.5);
-            border: none;
-            color: white;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            z-index: 10;
-            user-select: none;
-        }
-
-        .carousel-button.left {
-            left: 0.5rem;
-        }
-
-        .carousel-button.right {
-            right: 0.5rem;
-        }
-
-        footer {
-            background-color: #00ccff;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CodeWorld</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Bienvenido a CodeWorld</h1>
-        <div class="botones-header">
-            <button>Juegos</button>
-            <button>Comunidad</button>
-            <button>Tutoriales</button>
-        </div>
-    </header>
+  <header>
+    <h1>🎮 CodeWorld</h1>
+    <nav>
+      <a href="https://scratch.mit.edu/" target="_blank">Scratch</a>
+      <a href="https://itch.io/" target="_blank">Itch.io</a>
+      <a href="https://arcade.construct.net/" target="_blank">Construct Arcade</a>
+      <a href="https://flowlab.io/" target="_blank">Flowlab</a>
+      <a href="https://developer.crazygames.com/" target="_blank">CrazyGames</a>
+    </nav>
+    <button id="uploadBtn">Subir Juego</button>
+  </header>
 
-    <main>
-        <h2>Juegos</h2>
-        <p>Aquí puedes encontrar nuestros mejores juegos.</p>
+  <section id="gallery"></section>
 
-        <!-- Carrusel Netflix Juegos -->
-        <div class="carousel-container">
-            <button class="carousel-button left" aria-label="Desplazar a la izquierda">&#10094;</button>
-            <div class="carousel-track">
-                <div class="carousel-item">
-                    <img src="Juego 1.png" alt="Juego 1" />
-                </div>
-                <div class="carousel-item">
-                    <img src="Juego 2.png" alt="Juego 2" />
-                </div>
-                <div class="carousel-item">
-                    <img src="Juego 3.png" alt="Juego 3" />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/200x120?text=Juego+4" alt="Juego 4" />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/200x120?text=Juego+5" alt="Juego 5" />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/200x120?text=Juego+6" alt="Juego 6" />
-                </div>
-            </div>
-            <button class="carousel-button right" aria-label="Desplazar a la derecha">&#10095;</button>
-        </div>
-
-        <!-- Título Comunidad -->
-        <h2>Comunidad</h2>
-        <p>Aquí puedes encontrar los juegos hechos por la comunidad.</p>
-
-        <!-- Carrusel Netflix Comunidad -->
-        <div class="carousel-container comunidad-carousel">
-            <button class="carousel-button left" aria-label="Desplazar a la izquierda">&#10094;</button>
-            <div class="carousel-track">
-                <div class="carousel-item">
-                    <img src="Juego 1.png" alt="Evento 1" />
-                </div>
-                <div class="carousel-item">
-                    <img src="Juego 2.png" alt="Evento 2" />
-                </div>
-                <div class="carousel-item">
-                    <img src="Juego 3.png" alt="Evento 3" />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/200x120?text=Evento+4" alt="Evento 4" />
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/200x120?text=Evento+5" alt="Evento 5" />
-                </div>
-            </div>
-            <button class="carousel-button right" aria-label="Desplazar a la derecha">&#10095;</button>
-        </div>
-    </main>
-
-    <footer>
-        &copy; CodeWorld
-    </footer>
-
-    <script>
-        // Función para manejar el scroll de cada carrusel
-        function setupCarousel(container) {
-            const track = container.querySelector('.carousel-track');
-            const btnLeft = container.querySelector('.carousel-button.left');
-            const btnRight = container.querySelector('.carousel-button.right');
-
-            btnLeft.addEventListener('click', () => {
-                track.scrollBy({
-                    left: -220,
-                    behavior: 'smooth'
-                });
-            });
-
-            btnRight.addEventListener('click', () => {
-                track.scrollBy({
-                    left: 220,
-                    behavior: 'smooth'
-                });
-            });
-        }
-
-        // Configurar todos los carruseles
-        document.querySelectorAll('.carousel-container').forEach(container => {
-            setupCarousel(container);
-        });
-    </script>
-
-
-<header>
-    <img src="New Piskel (2).gif" alt="Logo" style="position: absolute; top: 10px; left: 10px; width: 100px; height: 100px;">
-    <h1>Bienvenido a CodeWorld</h1>
-    <div class="botones-header">
-        <button>Juegos</button>
-        <button>Comunidad</button>
-        <button>Tutoriales</button>
+  <!-- Modal para subir juego -->
+  <div id="uploadModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Subir Nuevo Juego</h2>
+      <input type="text" id="gameTitle" placeholder="Nombre del Juego">
+      <input type="text" id="gameURL" placeholder="URL del juego (https://...)">
+      <p style="margin-top:15px;">URL de la portada (opcional):</p>
+      <input type="text" id="gameImgURL" placeholder="URL de imagen">
+      <p style="margin-top:10px;">O subir imagen desde tu equipo:</p>
+      <input type="file" id="gameImgFile" accept="image/*">
+      <button id="saveGame">Guardar</button>
     </div>
-</header>
+  </div>
 
+  <script>
+    const uploadBtn = document.getElementById('uploadBtn');
+    const uploadModal = document.getElementById('uploadModal');
+    const saveGame = document.getElementById('saveGame');
+    const gallery = document.getElementById('gallery');
+    const gameTitle = document.getElementById('gameTitle');
+    const gameURL = document.getElementById('gameURL');
+    const gameImgURL = document.getElementById('gameImgURL');
+    const gameImgFile = document.getElementById('gameImgFile');
+
+    uploadBtn.onclick = () => uploadModal.style.display = 'block';
+    uploadModal.querySelector('.close').onclick = () => uploadModal.style.display = 'none';
+
+    saveGame.onclick = () => {
+      const title = gameTitle.value;
+      const url = gameURL.value;
+      const imgUrl = gameImgURL.value;
+      const imgFile = gameImgFile.files[0];
+      let imgSrc = '';
+
+      if (!title || !url) {
+        alert('Completa al menos nombre y URL del juego.');
+        return;
+      }
+
+      if (imgFile) {
+        imgSrc = URL.createObjectURL(imgFile);
+      } else if (imgUrl) {
+        imgSrc = imgUrl;
+      } else {
+        imgSrc = 'https://via.placeholder.com/300x160/333333/FFFFFF?text=Sin+Portada';
+      }
+
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${imgSrc}" alt="${title}">
+        <h3>${title}</h3>
+      `;
+      card.onclick = () => {
+        window.open(url, '_blank');
+      };
+      gallery.appendChild(card);
+
+      uploadModal.style.display = 'none';
+      gameTitle.value = gameURL.value = gameImgURL.value = '';
+      gameImgFile.value = '';
+    };
+
+    window.onclick = (e) => {
+      if (e.target === uploadModal) uploadModal.style.display = 'none';
+    };
+  </script>
 </body>
 </html>
